@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 resource "aws_iam_role" "eks_node_group" {
-  name               = "eks-node-group-${var.cluster_name}"
+  name               = "eks-node-group-role-${var.cluster_name}"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
