@@ -10,7 +10,3 @@ module "eks_node_group_role" {
   cluster_name = var.cluster_name
 }
 
-variable "cluster_name" {
-  description = "Name of the EKS cluster"
-  type        = string
-}
