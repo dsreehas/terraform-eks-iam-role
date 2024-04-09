@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "assume_role" {
 
     principals {
       type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
+      identifiers = [var.ec2_service_principal]
     }
 
     actions = ["sts:AssumeRole"]
@@ -17,16 +17,16 @@ resource "aws_iam_role" "eks_node_group" {
 }
 
 resource "aws_iam_role_policy_attachment" "eks_worker_node_policy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+  policy_arn = var.worker_node_policy_arn
   role       = aws_iam_role.eks_node_group.name
 }
 
 resource "aws_iam_role_policy_attachment" "eks_cni_policy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+  policy_arn = var.cni_policy_arn
   role       = aws_iam_role.eks_node_group.name
 }
 
 resource "aws_iam_role_policy_attachment" "ec2_container_registry_read_only" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+  policy_arn = var.ecr_read_only_policy_arn
   role       = aws_iam_role.eks_node_group.name
 }
