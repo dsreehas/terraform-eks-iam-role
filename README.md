@@ -1,1 +1,1 @@
-# terraform-eks-iam-role
+# terraform-eks-cluster-role
