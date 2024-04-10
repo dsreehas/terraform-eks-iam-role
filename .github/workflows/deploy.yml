@@ -53,5 +53,5 @@ jobs:
         run: terraform plan -out=tfplan
         continue-on-error: true
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan || true
+      # - name: Terraform Apply
+      #   run: terraform apply -auto-approve tfplan || true
