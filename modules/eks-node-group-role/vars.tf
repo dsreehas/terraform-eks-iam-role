@@ -3,10 +3,10 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "ec2_service_principal" {
-  description = "Service principal for EKS"
-  default     = "eks.amazonaws.com"
-}
+# variable "ec2_service_principal" {
+#   description = "Service principal for EKS"
+#   default     = "eks.amazonaws.com"
+# }
 
 variable "worker_node_policy_arn" {
   description = "ARN of the IAM policy to attach to worker nodes"
