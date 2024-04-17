@@ -8,3 +8,16 @@
 
 # Ignore any files containing sensitive information
 *.tfvars
+
+# Ignore Crash log files
+crash.log
+
+# Ignore Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI config files
+.terraformrc
+terraform.rc
