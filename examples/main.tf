@@ -1,10 +1,20 @@
 module "iam_role" {
-  source             = "../"
-  name               = "EC2 Role"
+  source = "github.com/dsreehas/terraform-eks-iam-role"  # Update the source to the actual path of your module
+
+  name               = "complete"
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
-  policy             = data.aws_iam_policy_document.policy.json
-  path        = "/ec2/"
-  description = "Describe EC2"
+  policies           = [
+    data.aws_iam_policy_document.policy1.json,
+    data.aws_iam_policy_document.policy2.json
+  ]
+
+   policy_arns        = [
+    "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+    "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+  ]  
+
+  path                  = "/ec2/"
+  description           = "Describe EC2"
 }
 
 data "aws_iam_policy_document" "assume_role_policy" {
@@ -22,7 +32,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
   }
 }
 
-data "aws_iam_policy_document" "policy" {
+data "aws_iam_policy_document" "policy1" {
   statement {
     effect = "Allow"
 
@@ -31,5 +41,18 @@ data "aws_iam_policy_document" "policy" {
     ]
 
     resources = ["*"]
+  }
+}
+
+data "aws_iam_policy_document" "policy2" {
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "s3:List*",
+      "s3:Get*",
+    ]
+
+    resources = ["arn:aws:s3:::*"]
   }
 }

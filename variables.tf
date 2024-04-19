@@ -7,6 +7,7 @@ variable "aws_region" {
 variable "name" {
   type        = string
   description = "The name of the role. If omitted, Terraform will assign a random, unique name."
+  default = "test-iam-role"
 }
 
 variable "assume_role_policy" {

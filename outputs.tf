@@ -24,31 +24,31 @@ output "iam_role_description" {
 }
 
 output "iam_policy_id" {
-  value       = aws_iam_policy.default.id
+  value       = length(aws_iam_policy.default[*]) > 0 ? aws_iam_policy.default[0].id : null
   description = "The policy's ID."
 }
 
 output "iam_policy_arn" {
-  value       = aws_iam_policy.default.arn
+  value       = length(aws_iam_policy.default[*]) > 0 ? aws_iam_policy.default[0].arn : null
   description = "The ARN assigned by AWS to this policy."
 }
 
 output "iam_policy_description" {
-  value       = aws_iam_policy.default.description
+  value       = length(aws_iam_policy.default[*]) > 0 ? aws_iam_policy.default[0].description : null
   description = "The description of the policy."
 }
 
 output "iam_policy_name" {
-  value       = aws_iam_policy.default.name
+  value       = length(aws_iam_policy.default[*]) > 0 ? aws_iam_policy.default[0].name : null
   description = "The name of the policy."
 }
 
 output "iam_policy_path" {
-  value       = aws_iam_policy.default.path
+  value       = length(aws_iam_policy.default[*]) > 0 ? aws_iam_policy.default[0].path : null
   description = "The path of the policy in IAM."
 }
 
 output "iam_policy_document" {
-  value       = aws_iam_policy.default.policy
+  value       = length(aws_iam_policy.default[*]) > 0 ? aws_iam_policy.default[0].policy : null
   description = "The policy document."
 }
