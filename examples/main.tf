@@ -9,8 +9,8 @@ module "iam_role" {
   ]
 
    policy_arns        = [
-    "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
-    "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+    # "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+    # "arn:aws:iam::aws:policy/AmazonS3FullAccess"
   ]  
 
   path                  = "/ec2/"
