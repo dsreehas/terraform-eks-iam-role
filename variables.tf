@@ -17,6 +17,7 @@ variable "assume_role_policy" {
 variable "policies" {
   type        = list(string)
   description = "A list of policy documents. Each policy is a JSON formatted string."
+  default     = []
 }
 
 variable "policy_arns" {

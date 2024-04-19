@@ -1,15 +1,16 @@
 resource "aws_iam_role" "default" {
   name               = var.name
   assume_role_policy = var.assume_role_policy
-  path        = var.path
-  description = var.description
+  path               = var.path
+  description        = var.description
 }
 
 resource "aws_iam_policy" "default" {
-  name        = var.name
-  policy      = var.policy
-  path        = var.path
-  description = var.description
+  count             = length(var.policies) > 0 ? 1 : 0
+  name              = var.name
+  policy            = var.policies[count.index]
+  path              = var.path
+  description       = var.description
 }
 
 resource "aws_iam_role_policy_attachment" "default" {
