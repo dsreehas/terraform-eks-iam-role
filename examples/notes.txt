@@ -1,0 +1,98 @@
+# Example 1: Create only a role
+module "iam_role" {
+    source = "/Users/user/Documents/GitHub/terraform-eks-iam-role/"  # Update the source to the actual path of your module
+
+
+  name               = "test-role"
+  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
+}
+
+# Example 2: Create a role with inline policies
+module "iam_role_with_inline_policies" {
+    source = "/Users/user/Documents/GitHub/terraform-eks-iam-role/"  # Update the source to the actual path of your module
+
+
+  name               = "test-role-with-inline-policies"
+  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
+  create_inline_policies = true
+
+  inline_policies = {
+    "example-inline-policy" = {
+      actions   = ["s3:GetObject"]
+      resources = ["arn:aws:s3:::example-bucket/*"]
+      policy_document = jsonencode({
+        Version = "2012-10-17"
+        Statement = [
+          {
+            Effect   = "Allow"
+            Action   = ["s3:GetObject"]
+            Resource = ["arn:aws:s3:::example-bucket/*"]
+          }
+        ]
+      })
+    }
+  }
+}
+
+# Example 3: Create a role with managed policies
+module "iam_role_with_managed_policies" {
+    source = "/Users/user/Documents/GitHub/terraform-eks-iam-role/"  # Update the source to the actual path of your module
+
+
+  name               = "test-role-with-managed-policies"
+  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
+  attach_managed_policies = true
+
+  policy_arns = [
+    "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+    "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+  ]
+}
+
+# Example 4: Create a role with both inline policies and managed policies
+module "iam_role_with_all_policies" {
+    source = "/Users/user/Documents/GitHub/terraform-eks-iam-role/"  # Update the source to the actual path of your module
+
+
+  name               = "test-role-with-all-policies"
+  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
+  create_inline_policies = true
+  attach_managed_policies = true
+
+  inline_policies = {
+    "example-inline-policy" = {
+      actions   = ["s3:GetObject"]
+      resources = ["arn:aws:s3:::example-bucket/*"]
+      policy_document = jsonencode({
+        Version = "2012-10-17"
+        Statement = [
+          {
+            Effect   = "Allow"
+            Action   = ["s3:GetObject"]
+            Resource = ["arn:aws:s3:::example-bucket/*"]
+          }
+        ]
+      })
+    }
+  }
+
+  policy_arns = [
+    "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+    "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+  ]
+}
+
+data "aws_iam_policy_document" "assume_role_policy" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+
+    actions = [
+      "sts:AssumeRole",
+    ]
+  }
+}
