@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
 
 data "aws_iam_policy_document" "inline_policy" {
   statement {
-    actions = ["s3:ListBucket"]
+    actions   = ["s3:ListBucket"]
     resources = ["arn:aws:s3:::example-bucket"]
   }
 }
