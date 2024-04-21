@@ -58,7 +58,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
             "s3:ListBucket"
           ],
           "Resource": [
-            "arn:aws:s3:::my-bucket"
+            "arn:aws:s3:::example-bucket"
           ]
         }
       ]
@@ -120,7 +120,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
             "s3:GetBucketLocation"
           ],
           "Resource": [
-            "arn:aws:s3:::my-bucket"
+            "arn:aws:s3:::example-bucket"
           ]
         }
       ]
@@ -138,7 +138,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
             "dynamodb:Scan"
           ],
           "Resource": [
-            "arn:aws:dynamodb:*:*:table/my-table"
+            "arn:aws:dynamodb:*:*:table/example-table"
           ]
         }
       ]
@@ -219,7 +219,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
                 "s3:ListBucket"
               ],
               "Resource": [
-                "arn:aws:s3:::my-bucket"
+                "arn:aws:s3:::example-bucket"
               ]
             }
           ]
@@ -236,7 +236,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
                 "dynamodb:DescribeTable"
               ],
               "Resource": [
-                "arn:aws:dynamodb:*:*:table/my-table"
+                "arn:aws:dynamodb:*:*:table/example-table"
               ]
             }
           ]

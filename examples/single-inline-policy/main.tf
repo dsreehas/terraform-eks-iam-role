@@ -26,7 +26,7 @@ EOF
         "s3:ListBucket"
       ],
       "Resource": [
-        "arn:aws:s3:::my-bucket"
+        "arn:aws:s3:::example-bucket"
       ]
     }
   ]

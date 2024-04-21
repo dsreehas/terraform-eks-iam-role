@@ -27,7 +27,7 @@ EOF
         "s3:GetBucketLocation"
       ],
       "Resource": [
-        "arn:aws:s3:::my-bucket"
+        "arn:aws:s3:::example-bucket"
       ]
     }
   ]
@@ -45,7 +45,7 @@ EOF
         "dynamodb:Scan"
       ],
       "Resource": [
-        "arn:aws:dynamodb:*:*:table/my-table"
+        "arn:aws:dynamodb:*:*:table/example-table"
       ]
     }
   ]
