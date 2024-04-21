@@ -5,14 +5,6 @@ data "aws_iam_policy_document" "iam_assumeRole_generic" {
     sid     = "AllowAssumeRole"
     actions = ["sts:AssumeRole"]
     effect  = "Allow"
-
-    dynamic "principals" {
-      for_each = length(var.aws_identifiers) > 0 ? [{ type = "AWS", identifiers = concat(var.aws_identifiers, try(["${data.aws_caller_identity.current.arn}:root"], [])) }] : []
-      content {
-        type        = principals.value.type
-        identifiers = principals.value.identifiers
-      }
-    }
   }
 }
 # Create the IAM role
@@ -28,7 +20,6 @@ resource "aws_iam_role" "role" {
     }
   }
   managed_policy_arns  = var.managed_policy_arns
-  max_session_duration = var.max_session_duration
   name                 = var.name
   path                 = var.path
   tags                 = var.tags
