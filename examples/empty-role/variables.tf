@@ -9,5 +9,5 @@ variable "aws_profile" {
 variable "role_name" {
   description = "Name of the IAM role"
   type        = string
-  default     = "role-with-inline-policies"
+  default     = "example-role"
 }

@@ -19,10 +19,10 @@ resource "aws_iam_role" "role" {
       policy = inline_policy.value["policy"]
     }
   }
-  managed_policy_arns  = var.managed_policy_arns
-  name                 = var.name
-  path                 = var.path
-  tags                 = var.tags
+  managed_policy_arns = var.managed_policy_arns
+  name                = var.name
+  path                = var.path
+  tags                = var.tags
 }
 
 # Attach managed policies to the role
