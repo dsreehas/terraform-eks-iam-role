@@ -1,41 +1,20 @@
-# IAM policy document
-data "aws_iam_policy_document" "iam_assumeRole_generic" {
-  policy_id = "AssumeRole"
-  statement {
-    sid     = "AllowAssumeRole"
-    actions = ["sts:AssumeRole"]
-    effect  = "Allow"
-  }
-}
-# Create the IAM role
-resource "aws_iam_role" "role" {
-  assume_role_policy = try(var.assume_role_policy, data.aws_iam_policy_document.iam_assumeRole_generic.json)
-  description        = var.description
-
-  dynamic "inline_policy" {
-    for_each = var.inline_policy
-    content {
-      name   = inline_policy.value["name"]
-      policy = inline_policy.value["policy"]
-    }
-  }
-  managed_policy_arns = var.managed_policy_arns
-  name                = var.name
-  path                = var.path
-  tags                = var.tags
+# Create IAM role
+resource "aws_iam_role" "this" {
+  name               = var.role_name
+  assume_role_policy = var.assume_role_policy
 }
 
-# Attach managed policies to the role
-resource "aws_iam_role_policy_attachment" "role" {
-  count      = var.policies_count
-  role       = aws_iam_role.role.name
-  policy_arn = element(var.policies, count.index)
+# Conditionally create inline policies
+resource "aws_iam_role_policy" "inline_policies" {
+  count  = length(var.inline_policies)
+  name   = "inline-policy-${count.index}"
+  role   = aws_iam_role.this.id
+  policy = var.inline_policies[count.index]
 }
 
-# Attach inline policies to the role
-resource "aws_iam_role_policy" "role" {
-  count  = var.json_policies_count
-  role   = aws_iam_role.role.name
-  name   = "${var.name}-${count.index}"
-  policy = element(var.json_policies, count.index)
+# Conditionally attach managed policies
+resource "aws_iam_role_policy_attachment" "managed_policy_attachments" {
+  count      = length(var.managed_policy_arns)
+  role       = aws_iam_role.this.name
+  policy_arn = var.managed_policy_arns[count.index]
 }
