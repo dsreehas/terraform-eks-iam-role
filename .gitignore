@@ -3,6 +3,10 @@
 *.tfstate.backup
 *.tfplan
 
+# Ignore lock files
+.terraform.lock.hcl
+.terraform.tfstate.lock.info
+
 # Ignore .terraform directory
 .terraform/
 

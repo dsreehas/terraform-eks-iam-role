@@ -2,9 +2,9 @@
 data "aws_iam_policy_document" "iam_assumeRole_generic" {
   policy_id = "AssumeRole"
   statement {
-    sid       = "AllowAssumeRole"
-    actions   = ["sts:AssumeRole"]
-    effect    = "Allow"
+    sid     = "AllowAssumeRole"
+    actions = ["sts:AssumeRole"]
+    effect  = "Allow"
 
     dynamic "principals" {
       for_each = length(var.aws_identifiers) > 0 ? [{ type = "AWS", identifiers = concat(var.aws_identifiers, try(["${data.aws_caller_identity.current.arn}:root"], [])) }] : []
@@ -27,7 +27,7 @@ resource "aws_iam_role" "role" {
       policy = inline_policy.value["policy"]
     }
   }
-  managed_policy_arns = var.managed_policy_arns
+  managed_policy_arns  = var.managed_policy_arns
   max_session_duration = var.max_session_duration
   name                 = var.name
   path                 = var.path
