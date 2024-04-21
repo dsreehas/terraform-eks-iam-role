@@ -1,71 +1,94 @@
 variable "aws_region" {
-  description = "AWS region"
+  description = "Specified AWS region"
+}
+
+variable "aws_profile" {
+  description = "Specified AWS profile"
+}
+
+variable "assume_role_policy" {
+  description = "Policy to assume a role"
   type        = string
-  default     = "us-east-1"
+  default     = null
 }
 
-variable "iam_role_module_enabled" {
-  description = "Whether to create the resources."
-  type        = bool
-  // `false` prevents the module from creating any resources
-  default     = false
-}
-
-variable "iam_role_name" {
-  description = "The name of the role. If omitted, Terraform will assign a random, unique name."
+variable "description" {
+  description = "Description of the role"
   type        = string
+  default     = null
 }
 
-variable "iam_role_description" {
-  description = "The description of the role."
+variable "inline_policy" {
+  description = "Set of IAM inline policies associated with the IAM role"
+  type = list(object({
+    name   = string
+    policy = string
+  }))
+  default = []
+}
+
+variable "managed_policy_arns" {
+  description = "Set of IAM managed policy ARNs to attach to the IAM role"
+  type        = list(string)
+  default     = null
+}
+
+variable "max_session_duration" {
+  description = "Maximum session duration (in seconds) to set for the specified role"
+  type        = number
+  default     = null
+}
+
+variable "name" {
+  description = "Name of the role"
   type        = string
-  default     = "This role is managed by ITSM Terraform/Terragrunt"
+  default     = null
 }
 
-variable "iam_role_path" {
-  description = "The path to the role."
+variable "path" {
+  description = "Path to the role"
   type        = string
-  default     = "/"
+  default     = null
 }
 
-variable "iam_role_max_session_duration" {
-  description = "The maximum session duration (in seconds) that you want to set for the specified role."
-  default     = 3600
-}
-
-variable "iam_role_tags" {
-  description = "Key-value mapping of tags for the IAM role."
+variable "tags" {
+  description = "Key-value mapping of tags for the IAM role"
   type        = map(string)
   default     = {}
 }
 
-variable "iam_role_permissions_boundary_arn" {
-  description = "The ARN of the policy that is used to set the permissions boundary for the role."
-  type        = string
-  default     = ""
+variable "policies_count" {
+  description = "Number of AWS policies provided in the policies variable"
+  type        = number
+  default     = 0
 }
 
-variable "iam_role_policy_document" {
-  description = "The IAM policy to attach to the role (in JSON format)."
-  type        = string
-  default     = ""
-}
-
-variable "iam_role_policies_arns" {
-  description = "The list of ARNs of additional policies to attach to the role."
+variable "policies" {
+  description = "ARNs of policies to directly attach to the role"
   type        = list(string)
   default     = []
 }
 
-## One of the next lists must be non-empty
-variable "iam_role_trusted_aws_arns" {
-  description = "ARNs of AWS entities who can assume this role."
+variable "json_policies_count" {
+  description = "Number of JSON formatted inline policies provided in the json_policies variable"
+  type        = number
+  default     = 0
+}
+
+variable "json_policies" {
+  description = "JSON formatted inline policies for the role"
   type        = list(string)
   default     = []
 }
 
-variable "iam_role_trusted_aws_services" {
-  description = "Names of AWS services which can assume this role."
+variable "aws_identifiers" {
+  description = "List of identifiers for principal of type AWS, these are IAM user or role ARNs"
+  type        = list(string)
+  default     = []
+}
+
+variable "service_identifiers" {
+  description = "List of identifiers for principal of type Service"
   type        = list(string)
   default     = []
 }
