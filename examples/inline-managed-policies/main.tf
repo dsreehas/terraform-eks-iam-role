@@ -1,5 +1,5 @@
 module "iam_role" {
-  source              = "/Users/user/Documents/GitHub/test/"
+  source              = "github.com/dsreehas/terraform-eks-iam-role"
   role_name           = var.role_name
   assume_role_policy  = <<EOF
 {
