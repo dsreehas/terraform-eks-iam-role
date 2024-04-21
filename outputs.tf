@@ -18,11 +18,6 @@ output "managed_policy_arns" {
   value       = aws_iam_role.role.managed_policy_arns
 }
 
-output "max_session_duration" {
-  description = "Maximum session duration (in seconds) to set for the specified role"
-  value       = aws_iam_role.role.max_session_duration
-}
-
 output "path" {
   description = "Path to the role"
   value       = aws_iam_role.role.path
