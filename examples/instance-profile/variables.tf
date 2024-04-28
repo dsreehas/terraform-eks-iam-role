@@ -17,21 +17,8 @@ variable "role_name" {
   default     = "instance-profile-role"
 }
 
-# variable "assume_role_policy" {
-#   description = "Assume role policy document"
-#   type        = string
-#   default     = <<EOF
-# {
-#   "Version": "2012-10-17",
-#   "Statement": [
-#     {
-#       "Effect": "Allow",
-#       "Principal": {
-#         "Service": "ec2.amazonaws.com"
-#       },
-#       "Action": "sts:AssumeRole"
-#     }
-#   ]
-# }
-# EOF
-# }
+variable "managed_policy_arns" {
+  description = "List of ARNs for managed policies to attach"
+  type        = list(string)
+  default     = ["arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess", "arn:aws:iam::aws:policy/CloudWatchLogsReadOnlyAccess"]
+}
