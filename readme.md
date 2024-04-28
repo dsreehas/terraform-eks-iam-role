@@ -1,4 +1,4 @@
-# Terraform AWS IAM Roles for Amazon EKS
+# Terraform AWS IAM Role Module
 
 ## Overview
 
