@@ -11,7 +11,7 @@ repos:
         description: Generates terraform documentation.(Readme File)
         args:
           - '--args=--lockfile=false'
-          - '--args=--config=.terraform-docs.yml'
+          - '--args=--config=.terraform-docs.yaml'
       - id: terraform_tflint
         name: terraform tflint
         description: Automatic terraform linting.
