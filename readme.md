@@ -9,7 +9,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
 ### IAM Role with No Attached Policies
 
     module "iam_role" {
-      source             = "github.com/dsreehas/terraform-eks-iam-role"
+      source             = "github.com/dsreehas/terraform-iam-role"
       role_name          = var.role_name
       assume_role_policy = <<EOF
     {
@@ -31,7 +31,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
 ### IAM Role with Single Inline Policy
 
     module "iam_role" {
-      source             = "github.com/dsreehas/terraform-eks-iam-role"
+      source             = "github.com/dsreehas/terraform-iam-role"
       role_name          = var.role_name
       assume_role_policy = <<EOF
     {
@@ -70,7 +70,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
 ### IAM Role with Single Managed Policy
 
     module "iam_role" {
-      source              = "github.com/dsreehas/terraform-eks-iam-role"
+      source              = "github.com/dsreehas/terraform-iam-role"
       role_name           = var.role_name
       assume_role_policy  = <<EOF
     {
@@ -92,7 +92,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
 ### IAM Role with Multiple Inline Policies
 
     module "iam_role_with_inline_policies" {
-      source             = "github.com/dsreehas/terraform-eks-iam-role"
+      source             = "github.com/dsreehas/terraform-iam-role"
       role_name          = var.role_name
       assume_role_policy = <<EOF
     {
@@ -167,7 +167,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
 ### IAM Role with Multiple Managed Policies
 
     module "iam_role_with_managed_policies" {
-      source             = "github.com/dsreehas/terraform-eks-iam-role"
+      source             = "github.com/dsreehas/terraform-iam-role"
       role_name          = var.role_name
       assume_role_policy = <<EOF
     {
@@ -192,7 +192,7 @@ This Terraform module is designed to create AWS IAM roles with appropriate inlin
 ### IAM Role with Multiple Inline and Managed Policies
 
         module "iam_role" {
-          source             = "github.com/dsreehas/terraform-eks-iam-role"
+          source             = "github.com/dsreehas/terraform-iam-role"
           role_name          = var.role_name
           assume_role_policy = <<EOF
         {
