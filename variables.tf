@@ -11,7 +11,6 @@ variable "aws_profile" {
   default     = null
 }
 
-# Define input variables
 variable "role_name" {
   description = "Name of the IAM role"
   type        = string
