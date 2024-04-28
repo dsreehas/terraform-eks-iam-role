@@ -1,5 +1,5 @@
 ---
-formatter: markdown table
+formatter: markdown
 
 version: ">= 0.16.0, < 1.0.0"
 
@@ -9,7 +9,7 @@ output:
 
 sort:
   enabled: true
-  by: name
+  by: required
 
 settings:
   anchor: true
