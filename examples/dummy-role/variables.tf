@@ -1,12 +1,11 @@
 variable "aws_region" {
-  description = "Specified AWS region"
+  description = "Selected AWS region"
   type        = string
   default     = null
-
 }
 
 variable "aws_profile" {
-  description = "Specified AWS profile"
+  description = "Selected AWS profile"
   type        = string
   default     = null
 }
