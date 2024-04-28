@@ -16,3 +16,9 @@ variable "role_name" {
   type        = string
   default     = "single-managed-policy-role"
 }
+
+variable "managed_policy_arns" {
+  description = "List of ARNs for managed policies to attach"
+  type        = list(string)
+  default     = [ "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"]
+}
