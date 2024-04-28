@@ -28,12 +28,12 @@ repos:
       - id: check-merge-conflict
         name: check merge conflict
         description: Check for files that contain merge conflict strings.
-      # - id: end-of-file-fixer
-      #   name: end of file fixer
-      #   description: Let's be sure that a new line has been added to the end of the file.
-      # - id: trailing-whitespace
-      #   name: trailing whitespace
-      #   description: Automatically remove trailing whitespace before committing.
+      - id: end-of-file-fixer
+        name: end of file fixer
+        description: Let's be sure that a new line has been added to the end of the file.
+      - id: trailing-whitespace
+        name: trailing whitespace
+        description: Automatically remove trailing whitespace before committing.
       - id: detect-private-key
         name: detect-private-key
         description: Detect if any Private key was defined
