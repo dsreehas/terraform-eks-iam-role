@@ -12,3 +12,8 @@ output "iam_instance_profile_arn" {
   description = "The ARN assigned by AWS to the instance profile"
   value       = aws_iam_instance_profile.iam_instance_profile.arn
 }
+
+output "iam_instance_profile_name" {
+  description = "The name of the instance profile"
+  value       = aws_iam_instance_profile.iam_instance_profile.name
+}
