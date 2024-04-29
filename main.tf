@@ -21,7 +21,7 @@ resource "aws_iam_role_policy_attachment" "managed_policy_attachments" {
 
 # Create IAM instance profile
 resource "aws_iam_instance_profile" "instance_profile" {
-  name = var.instance_profile_name
+  name = "${var.role_name}-instance-profile"
   role = aws_iam_role.iam_role.name
 
 }

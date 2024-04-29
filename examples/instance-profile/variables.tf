@@ -15,11 +15,6 @@ variable "role_name" {
   type        = string
   default     = "instance-profile-role"
 }
-variable "instance_profile_name" {
-  description = "Name of the Instance Profile role"
-  type        = string
-  default     = "instance-profile-name"
-}
 
 variable "managed_policy_arns" {
   description = "List of managed policies ARNs to attach"

@@ -23,11 +23,6 @@ output "iam_role_managed_policy_arns" {
   value       = aws_iam_role_policy_attachment.managed_policy_attachments[*].policy_arn
 }
 
-output "iam_instance_profile_name" {
-  description = "The name of the instance profile"
-  value       = aws_iam_instance_profile.instance_profile.name
-}
-
 output "iam_instance_profile_arn" {
   description = "The ARN of the instance profile"
   value       = aws_iam_instance_profile.instance_profile.arn

@@ -32,8 +32,3 @@ variable "managed_policy_arns" {
   type        = list(string)
   default     = []
 }
-
-variable "instance_profile_name" {
-  description = "Name of the IAM Instance Profile"
-  type        = string
-}
