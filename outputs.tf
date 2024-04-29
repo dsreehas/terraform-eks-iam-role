@@ -25,5 +25,5 @@ output "iam_role_managed_policy_arns" {
 
 output "iam_instance_profile_arn" {
   description = "The ARN of the instance profile"
-  value       = aws_iam_instance_profile.instance_profile.arn
+  value       = try(aws_iam_instance_profile.instance_profile[0].arn, null)
 }

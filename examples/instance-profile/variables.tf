@@ -16,6 +16,12 @@ variable "role_name" {
   default     = "instance-profile-role"
 }
 
+variable "instance_profile_name" {
+  description = "Name of the Instance Profile"
+  type        = string
+  default     = null
+}
+
 variable "managed_policy_arns" {
   description = "List of managed policies ARNs to attach"
   type        = list(string)

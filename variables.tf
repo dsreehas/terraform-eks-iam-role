@@ -32,3 +32,9 @@ variable "managed_policy_arns" {
   type        = list(string)
   default     = []
 }
+
+variable "instance_profile_name" {
+  description = "Instance profile name"
+  type        = string
+  default     = null
+}
