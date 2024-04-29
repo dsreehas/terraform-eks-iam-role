@@ -19,5 +19,5 @@ variable "role_name" {
 variable "managed_policy_arns" {
   description = "List of managed policies ARNs to attach"
   type        = list(string)
-  default     = ["arn:aws:iam::aws:policy/AmazonEKSClusterPolicy", "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"]
+  default     = ["arn:aws:iam::aws:policy/AmazonEKSClusterPolicy", "arn:aws:iam::aws:policy/AmazonEKSServicePolicy", "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"]
 }
