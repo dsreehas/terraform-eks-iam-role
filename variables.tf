@@ -1,5 +1,5 @@
 variable "aws_region" {
-  description = "Selected AWS region"
+  description = "Specified AWS region"
   type        = string
   default     = null
 
@@ -31,4 +31,9 @@ variable "managed_policy_arns" {
   description = "List of managed policy ARNs"
   type        = list(string)
   default     = []
+}
+
+variable "instance_profile_name" {
+  description = "Name of the IAM Instance Profile"
+  type        = string
 }
