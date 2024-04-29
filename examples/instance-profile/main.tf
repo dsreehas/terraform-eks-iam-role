@@ -8,7 +8,7 @@ module "iam_role" {
 }
 
 resource "aws_iam_instance_profile" "iam_instance_profile" {
-  name = "my-instance-profile"
+  name = "${var.role_name}-instance-profile"
   role = module.iam_role.iam_role_name
 
 }
