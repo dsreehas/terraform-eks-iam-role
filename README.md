@@ -30,7 +30,6 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_assume_role_policy"></a> [assume\_role\_policy](#input\_assume\_role\_policy) | Assume role policy document | `string` | n/a | yes |
-| <a name="input_instance_profile_name"></a> [instance\_profile\_name](#input\_instance\_profile\_name) | Name of the IAM Instance Profile | `string` | n/a | yes |
 | <a name="input_role_name"></a> [role\_name](#input\_role\_name) | Name of the IAM role | `string` | n/a | yes |
 | <a name="input_aws_profile"></a> [aws\_profile](#input\_aws\_profile) | Selected AWS profile | `string` | `null` | no |
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | Specified AWS region | `string` | `null` | no |
@@ -42,7 +41,6 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_iam_instance_profile_arn"></a> [iam\_instance\_profile\_arn](#output\_iam\_instance\_profile\_arn) | The ARN of the instance profile |
-| <a name="output_iam_instance_profile_name"></a> [iam\_instance\_profile\_name](#output\_iam\_instance\_profile\_name) | The name of the instance profile |
 | <a name="output_iam_role_arn"></a> [iam\_role\_arn](#output\_iam\_role\_arn) | The ARN of the IAM role |
 | <a name="output_iam_role_assume_role_policy"></a> [iam\_role\_assume\_role\_policy](#output\_iam\_role\_assume\_role\_policy) | The IAM assume role policy associated with the role |
 | <a name="output_iam_role_inline_policies"></a> [iam\_role\_inline\_policies](#output\_iam\_role\_inline\_policies) | The inline policies attached to the IAM role |
