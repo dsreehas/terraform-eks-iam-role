@@ -34,7 +34,37 @@ variable "managed_policy_arns" {
 }
 
 variable "instance_profile_name" {
-  description = "Instance profile name"
+  description = "Name of the instance profile"
   type        = string
   default     = null
+}
+
+variable "role_description" {
+  description = "Description of the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "max_session_duration" {
+  description = "Maximum session duration for the IAM role"
+  type        = number
+  default     = null
+}
+
+variable "path" {
+  description = "Path for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "permissions_boundary" {
+  description = "Permissions boundary for the role"
+  type        = string
+  default     = null
+}
+
+variable "tags" {
+  description = "Tags for the IAM role"
+  type        = map(string)
+  default     = {}
 }

@@ -4,16 +4,16 @@ output "iam_role_arn" {
 }
 
 output "iam_role_name" {
-  description = "The name of the IAM role"
+  description = "Name of the IAM role"
   value       = module.iam_role.iam_role_name
 }
 
 output "iam_role_assume_role_policy" {
-  description = "The IAM assume role policy associated with the role"
+  description = "IAM assume role policy associated with the role"
   value       = module.iam_role.iam_role_assume_role_policy
 }
 
 output "iam_role_managed_policy_arns" {
-  description = "The managed policy ARNs attached to the IAM role"
+  description = "Managed policy ARNs attached to the IAM role"
   value       = module.iam_role.iam_role_managed_policy_arns
 }

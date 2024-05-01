@@ -4,7 +4,7 @@ output "iam_role_arn" {
 }
 
 output "iam_role_name" {
-  description = "The name of the IAM role"
+  description = "Name of the IAM role"
   value       = module.iam_role.iam_role_name
 }
 

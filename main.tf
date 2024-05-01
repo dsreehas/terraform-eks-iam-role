@@ -1,7 +1,15 @@
 # Create IAM role
 resource "aws_iam_role" "iam_role" {
-  name               = var.role_name
-  assume_role_policy = var.assume_role_policy
+  # name               = var.role_name
+  # assume_role_policy = var.assume_role_policy
+  name                 = var.role_name
+  description          = var.role_description
+  assume_role_policy   = var.assume_role_policy
+  max_session_duration = var.max_session_duration
+  path                 = var.path
+  permissions_boundary = var.permissions_boundary
+
+  tags = var.tags
 }
 
 # Create inline policies

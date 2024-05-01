@@ -13,13 +13,13 @@ variable "aws_profile" {
 variable "role_name" {
   description = "Name of the IAM role"
   type        = string
-  default     = "multiple-managed-policies-role"
+  default     = "testing-multiple-managed-policies-role"
 }
 
 variable "role_description" {
   description = "Description of the IAM role"
   type        = string
-  default     = "This is my IAM role for EC2 instances"
+  default     = null
 }
 
 variable "managed_policy_arns" {
