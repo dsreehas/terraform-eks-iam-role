@@ -13,13 +13,13 @@ variable "aws_profile" {
 variable "role_name" {
   description = "Name of the IAM role"
   type        = string
-  default     = "multiple-managed-policies-role"
+  default     = "testing-multiple-managed-policies-role"
 }
 
 variable "role_description" {
   description = "Description of the IAM role"
   type        = string
-  default     = "This is my IAM role for EC2 instances"
+  default     = "test-description"
 }
 
 variable "managed_policy_arns" {
@@ -43,7 +43,7 @@ variable "path" {
 variable "permissions_boundary" {
   description = "Permissions boundary for the IAM role"
   type        = string
-  default     = "arn:aws:iam::123456789012:policy/MyPermissionsBoundary"
+  default     = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
 }
 
 variable "tags" {

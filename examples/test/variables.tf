@@ -19,7 +19,7 @@ variable "role_name" {
 variable "role_description" {
   description = "Description of the IAM role"
   type        = string
-  default     = null
+  default     = "test-description"
 }
 
 variable "managed_policy_arns" {
@@ -43,7 +43,7 @@ variable "path" {
 variable "permissions_boundary" {
   description = "Permissions boundary for the IAM role"
   type        = string
-  default     = "arn:aws:iam::123456789012:policy/MyPermissionsBoundary"
+  default     = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
 }
 
 variable "tags" {
