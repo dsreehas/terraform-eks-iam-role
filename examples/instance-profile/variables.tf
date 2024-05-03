@@ -13,13 +13,13 @@ variable "aws_profile" {
 variable "role_name" {
   description = "Name of the Instance Profile role"
   type        = string
-  default     = "instance-profile-role"
+  default     = "new-instance-profile-role"
 }
 
-variable "instance_profile_name" {
-  description = "Name of the Instance Profile"
-  type        = string
-  default     = null
+variable "create_instance_profile" {
+  description = "Whether to create an instance profile or not"
+  type        = bool
+  default     = false
 }
 
 variable "managed_policy_arns" {
