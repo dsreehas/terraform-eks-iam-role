@@ -6,7 +6,7 @@ resource "aws_iam_role" "iam_role" {
   max_session_duration = var.max_session_duration
   path                 = var.path
   permissions_boundary = var.permissions_boundary
-  tags = var.tags
+  tags                 = var.tags
 }
 
 # Create inline policies
@@ -29,5 +29,4 @@ resource "aws_iam_instance_profile" "instance_profile" {
   count = var.instance_profile_name != null ? 1 : 0
   name  = var.instance_profile_name
   role  = aws_iam_role.iam_role.name
-
 }

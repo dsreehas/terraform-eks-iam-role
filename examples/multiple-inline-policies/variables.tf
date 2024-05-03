@@ -15,3 +15,36 @@ variable "role_name" {
   type        = string
   default     = "new-multiple-inline-policies-role"
 }
+
+variable "role_description" {
+  description = "Description of the IAM role"
+  type        = string
+  default     = "test-description"
+}
+
+variable "max_session_duration" {
+  description = "Maximum session duration for the IAM role"
+  type        = number
+  default     = 7200
+}
+
+variable "path" {
+  description = "Path of the IAM role"
+  type        = string
+  default     = "/ec2-test-path/"
+}
+
+variable "permissions_boundary" {
+  description = "Permissions boundary for the IAM role"
+  type        = string
+  default     = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+}
+
+variable "tags" {
+  description = "Tags for the IAM role"
+  type        = map(string)
+  default = {
+    Environment = "Production"
+    Team        = "DevOps"
+  }
+}

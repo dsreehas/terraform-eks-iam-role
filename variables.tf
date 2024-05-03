@@ -68,3 +68,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+# variable "create_instance_profile" {
+#   description = "Whether to create an instance profile or not"
+#   type        = bool
+#   default     = false
+# }
